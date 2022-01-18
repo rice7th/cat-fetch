@@ -8,10 +8,12 @@ NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
 #source: https://unix.stackexchange.com/a/371164/27362
-SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
+SESSION=$(loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p Type | grep -o -i "wayland\|x11")
 
 UPTIME=$(uptime -p)
 
+# Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
+SYMBOL="●"
 SEPARATOR="-"
 echo "${NODE}"
 for i in {1..20}
@@ -22,8 +24,9 @@ printf "\n"
 
 echo "   /'._        os:     ${OS}"
 echo "  (° o 7       wm:     ${WM}"
-echo "  |'-'\"~.  .   arch:   ${ARCH}"
-echo "  Uu^~C_J._.\"  kernel: ${KERNEL_NAME} ${KERNEL_REL}"
+echo "   |'-'\"~.  .  arch:   ${ARCH}"
+echo "   Uu^~C_J._.\" kernel: ${KERNEL_NAME} ${KERNEL_REL}"
 echo "               graphic session : ${SESSION}"
 echo "               uptime : ${UPTIME}"
 echo "               shell : $SHELL"
+echo -e " \x1b[31m ${SYMBOL} \x1b[33m ${SYMBOL} \x1b[32m ${SYMBOL} \x1b[36m ${SYMBOL} \x1b[34m ${SYMBOL} \x1b[35m ${SYMBOL} \x1b[37m ${SYMBOL} \x1b[90m ${SYMBOL}\x1b[0m"
