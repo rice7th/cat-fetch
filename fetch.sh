@@ -8,7 +8,7 @@ NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
 #source: https://unix.stackexchange.com/a/371164/27362
-SESSION=$(loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p Type | grep -o -i "wayland\|x11")
+SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
 
 UPTIME=$(uptime -p)
 
