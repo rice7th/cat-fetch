@@ -6,9 +6,11 @@ ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
+
 #source: https://unix.stackexchange.com/a/681480
 SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
 UPTIME=$(uptime -p | sed s/up// | sed 's/,//g')
+
 # Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
 SYMBOL="●"
 SEPARATOR="-"
@@ -31,7 +33,7 @@ echo "   Uu^~C_J._.\"  uptime: ${UPTIME}"
 echo "                kernel: ${KERNEL_NAME} ${KERNEL_REL}"
 while getopts ":m" option; do
    case $option in
-      m) # display Help
+      m) # 	Get More Info
          ExtraInfo
    esac
 done
