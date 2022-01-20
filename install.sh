@@ -18,13 +18,13 @@ read -a choose
 str1="2"
 
 if [ ${choose} == "$str1" ]; then
-  sudo wget --quiet https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/catfetch.sh -P /usr/bin/
+  sudo wget --quiet https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/catfetch -P /usr/bin/
   sudo chmod +x /usr/bin/catfetch.sh
 else
   if [ ! -d "$HOME/.local/bin/" ]; then 
     echo "Directory $HOME/.local/bin/ does not exist, creating"
     mkdir $HOME/.local/bin/
   fi
-  wget --quiet https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/catfetch.sh -P $HOME/.local/bin/
+  wget --quiet https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/catfetch -P $HOME/.local/bin/
   chmod +x $HOME/.local/bin/catfetch.sh
 fi
