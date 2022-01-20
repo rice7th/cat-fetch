@@ -48,6 +48,16 @@ ExtraInfo()
 	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}${SESSION}"
 }
 
+DarkColor()
+{
+	echo -e "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}"
+}
+
+BrightColor()
+{
+	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
+}
+
 printf "                $NODE\n                "
 
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
@@ -58,18 +68,20 @@ echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME:2}"
 echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
-while getopts ":m" option; do
+while getopts ":mdb:" option; do
    case $option in
       m) # 	Get More Info
-         ExtraInfo
+         ExtraInfo;;
+      b) #      Display bright colors
+         BrightColor;;
+      d) #	Display dark colors
+	 DarkColor;;
    esac
 done
 
 printf "                ${CLS}"
 for (( i=0; i<24; i++ )); do printf "-"; done
 printf "\e[0m\n"
-echo -e "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}"
-echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
 
 # /'._   ._
 #(- = 7___.~'
