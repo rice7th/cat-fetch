@@ -1,5 +1,29 @@
 #!/bin/bash
+Help()
+{
+        echo "
+-h      Shows this help message
+-m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
+-d      Adds your dark color palette to the output
+-b      Adds your bright color palette to the output
 
+This program is licensed under the GPLv3 license.
+
+If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
+https://github.com/jhonnyrice/cat-fetch-reborn
+"
+}
+while getopts ":h" option; do
+   case $option in
+      h) #      Get help message
+         Help
+	 exit;;
+      \?) #	Get invalid message
+         echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
+         exit;;
+
+   esac
+done
 #COLOR VARIABLES
 RED="\x1b[31m"
 YELLOW="\x1b[33m"
@@ -68,7 +92,7 @@ echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME:2}"
 echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
-while getopts ":mdb:" option; do
+while getopts ":mbd:" option; do
    case $option in
       m) # 	Get More Info
          ExtraInfo;;
