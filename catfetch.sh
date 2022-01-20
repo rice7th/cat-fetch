@@ -13,17 +13,14 @@ If you encounter any issue or want a feature to be added please open an issue on
 https://github.com/jhonnyrice/cat-fetch-reborn
 "
 }
-while getopts ":h" option; do
-   case $option in
-      h) #      Get help message
-         Help
-	 exit;;
-      \?) #	Get invalid message
-         echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
-         exit;;
+#while getopts ":h" option; do
+#   case $option in
+#      h) #      Get help message
+#         Help
+#	 exit;;
+#   esac
+#done
 
-   esac
-done
 #COLOR VARIABLES
 RED="\x1b[31m"
 YELLOW="\x1b[33m"
@@ -100,6 +97,9 @@ while getopts ":mbd:" option; do
          BrightColor;;
       d) #	Display dark colors
 	 DarkColor;;
+      \?) #     Get invalid message
+         echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
+         exit;;
    esac
 done
 
