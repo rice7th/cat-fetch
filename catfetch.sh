@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # CUSTOMIZZATION ZONE
 
 
@@ -59,7 +59,7 @@ ExtraInfo()
 	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}${SESSION}"
 }
 
-printf "                $NODE\n                "
+printf "                $NODE@$LOGNAME\n                "
 
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
 printf "\e[0m\n"
