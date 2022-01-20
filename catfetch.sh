@@ -1,20 +1,4 @@
 #!/bin/bash
-# CUSTOMIZZATION ZONE
-
-
-
-
-# Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
-SYMBOL="●"
-SEPARATOR="-"
-
-
-
-
-
-
-
-
 
 #COLOR VARIABLES
 RED="\x1b[31m"
@@ -46,6 +30,11 @@ SHELL_NAME=$(echo $SHELL | sed 's/bin//g')
 #source: https://unix.stackexchange.com/a/681480
 SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
 UPTIME=$(uptime -p | sed s/up// | sed 's/,//g'| sed 's/ //')
+
+# CUSTOMIZZATION ZONE
+# Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
+SYMBOL="●"
+SEPARATOR="-"
 
 
 TXTCOL=$YELLOW
