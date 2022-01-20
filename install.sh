@@ -18,7 +18,7 @@ read -a choose
 str1="2"
 
 if [ ${choose} == "$str1" ]; then
-  sudo wget --quiet https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/catfetch.sh -P /usr/bin/
+  sudo wget --quiet https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/main/catfetch.sh -P /usr/bin/
   sudo chmod +x /usr/bin/catfetch.sh
 else
   if [ ! -d "$HOME/.local/bin/" ]; then 
