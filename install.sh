@@ -25,6 +25,6 @@ else
     echo "Directory $HOME/.local/bin/ does not exist, creating"
     mkdir $HOME/.local/bin/
   fi
-  wget --quiet https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/catfetch -P $HOME/.local/bin/.sh
+  wget --quiet https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/main/catfetch -P $HOME/.local/bin/.sh
   chmod +x $HOME/.local/bin/catfetch.sh
 fi
