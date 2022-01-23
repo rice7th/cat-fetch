@@ -35,7 +35,7 @@ CATCOL=$CYAN
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
 OS=$(cat /etc/os-release | grep -m1 "NAME=" | cut -d '"' -f 2)
-WM=$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)$WAYLAND_DISPLAY
+WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)}
 ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
