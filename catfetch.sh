@@ -86,7 +86,7 @@ for (( i=0; i<24; i++ )); do printf "-"; done
 printf "\e[0m\n"
 }
 
-printf "                $NODE@$LOGNAME\n                "
+printf "${CATCOL}                $NODE@$LOGNAME\n                ${CLS}"
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
 
