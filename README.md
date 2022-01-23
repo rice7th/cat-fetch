@@ -1,5 +1,6 @@
 ## CatFetch Reborn
-Fast fetch program written in bash script!\n
+Fast fetch program written in bash script!
+
 The ascii cat is made by [me](https://github.com/jhonnyrice).
 
 #### Usage
@@ -19,9 +20,11 @@ Use the command below to automatically install the program:
 ```
 bash <(curl -s https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/main/install.sh)
 ```
-We advice to always check the project's code before running it,\nwe do not take any responsability if something happens.
+We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
 #### Notes
-Uses some GNU core utils and xprop to work. Wm script by Alberto Salvia Novella.\n
-This program is licensed under the GPLv3 license.\n
+Uses some GNU core utils and xprop to work. Wm script by Alberto Salvia Novella.
+
+This program is licensed under the GPLv3 license.
+
 If you encounter any issue or want a feature to be added please open an issue on this GitHub page.
