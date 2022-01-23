@@ -5,7 +5,7 @@ Recreation of catfetch (<https://github.com/jhonnyrice/cat-fetch>) in shell for 
 
 ## Installer:
 
-```bash <(curl -s https://raw.githubusercontent.com/SpyLima/cat-fetch-reborn/main/install.sh)```
+```bash <(curl -s https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/main/install.sh)```
 
 #### Uses some GNU core utils and xprop to work. Wm script by Alberto Salvia Novella.
 
