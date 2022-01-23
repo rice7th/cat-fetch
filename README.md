@@ -23,6 +23,11 @@ sudo make install
 ```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
+#### Uninstall
+```
+sudo rm /usr/bin/catfetch
+```
+
 #### Notes
 Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
 
