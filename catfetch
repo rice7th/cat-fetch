@@ -44,7 +44,6 @@ KERNEL_REL=$(uname -r)
 SHELL_NAME=$(basename $SHELL)
 
 #source: https://unix.stackexchange.com/a/681480
-SESSION=$($XDG_SESSION_TYPE)
 UPTIME=$(uptime -p)
 
 Help()
@@ -65,7 +64,7 @@ https://github.com/jhonnyrice/cat-fetch-reborn\n
 ExtraInfo()
 {
 	echo -e "                ${WORDCOL}arch:    ${TXTCOL}${ARCH}"
-	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}${SESSION:5}"
+	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}$XDG_SESSION_TYPE"
 	echo -e "                ${WORDCOL}cpu:     ${TXTCOL}${CPU:13}"
 	echo -e "                ${WORDCOL}ram:     ${TXTCOL}${RAM}"
 }
