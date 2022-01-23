@@ -86,11 +86,11 @@ for (( i=0; i<24; i++ )); do printf "-"; done
 printf "\e[0m\n"
 }
 
-printf "${CATCOL}                $NODE@$LOGNAME\n                ${CLS}"
+echo -e "${CATCOL}                $NODE@$LOGNAME\n                ${CLS}"
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
 
-printf "\e[0m\n"
+printf "\e[0m"
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
 echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}"
