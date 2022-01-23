@@ -33,7 +33,7 @@ CATCOL=$CYAN
 #Wm script by Alberto Salvia Novella (es20490446e.wordpress.com)
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
-OS=$(cat /etc/os-release | grep -m1 "NAME=" | cut -d '"' -f 2)
+OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
 WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)} # thanks to 
 ARCH=$(uname -m)
 NODE=$(uname -n)
@@ -83,15 +83,15 @@ Color()
 
 Separator()
 {
-printf "                ${CLS}"
+printf "                %s" "${CLS}"
 for (( i=0; i<24; i++ )); do printf "-"; done
 printf "\e[0m\n"
 }
 
 echo -e "${CATCOL}                $NODE@$LOGNAME                ${CLS}"
 LENGTH=${#NODE}+${#LOGNAME}+1
-printf "                ${CLS}"
-for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
+printf "                %s" "${CLS}"
+for (( i=0; i<LENGTH; i++ )); do printf "-"; done
 
 printf "\e[0m\n"
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
