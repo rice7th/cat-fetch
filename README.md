@@ -42,4 +42,4 @@ Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Nov
 
 This program is licensed under the GPLv3 license.
 
-If you encounter any issue or want a feature to be added please open an issue on this GitHub page.
+If you encounter any issue or want a feature to be added please open an issue on this GitHub page. 
