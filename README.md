@@ -28,6 +28,15 @@ We advice to always check the project's code before running it, we do not take a
 sudo make uninstall
 ```
 
+## Contributors
+[JhonnyRice](https://github.com/JhonnyRice/)
+
+[Francicoria](https://github.com/Francicoria/)
+
+[SpyLima](https://github.com/SpyLima)
+
+Viper
+
 #### Notes
 Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
 
