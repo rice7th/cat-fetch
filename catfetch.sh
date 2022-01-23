@@ -50,7 +50,8 @@ UPTIME=$(uptime -p)
 Help()
 {
         printf "
--m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
+-m      Adds more info to the output
+-c      Adds the color paletter to the output
 -d      Adds your dark color palette to the output
 -b      Adds your bright color palette to the output
 -a	Adds all of the options above
@@ -76,6 +77,12 @@ DarkColor()
 
 BrightColor()
 {
+	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
+}
+
+Color()
+{
+        echo -e "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}"
 	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
 }
 
@@ -119,6 +126,9 @@ while getopts ":hmabd" option; do
 	 printf "\e[0m";;
       d) #	Display dark colors
 	 DarkColor
+	 printf "\e[0m";;
+      c) # Display COLORS
+         Color
 	 printf "\e[0m";;
       ?) #     Get output
 	 printf "\e[0m\n"
