@@ -1,5 +1,5 @@
 PREFIX?=/usr
 
 install:
-	install -Dm755 catfetch.sh $(PREFIX)/bin/catfetch.sh
+	install -Dm755 catfetch $(PREFIX)/bin/catfetch
   
