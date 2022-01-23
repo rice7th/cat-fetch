@@ -1,8 +1,4 @@
 ### CatFetch Reborn
-(Currently WIP)
-Recreation of catfetch (<https://github.com/jhonnyrice/cat-fetch>) in shell for more accuracy and less bugs.
-
-Uses some GNU core utils and xprop to work. Wm script by Alberto Salvia Novella.
 
 #### Usage
 To use the program you'll need to know these options(most importantly the -o option):
@@ -17,4 +13,11 @@ To use the program you'll need to know these options(most importantly the -o opt
 ```
 This program is licensed under the GPLv3 license.
 If you encounter any issue or want a feature to be added please open an issue on this GitHub page.
+=======
+
+## Installer:
+
+```bash <(curl -s https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/main/install.sh)```
+
+#### Uses some GNU core utils and xprop to work. Wm script by Alberto Salvia Novella.
 

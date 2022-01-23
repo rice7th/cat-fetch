@@ -1,4 +1,5 @@
-#!/bin/bash
+
+#!/usr/bin/env bash
 
 Help()
 {
@@ -34,6 +35,18 @@ B_WHITE="\x1b[97m"
 GRAY="\x1b[90m"
 CLS="\x1b[0m"
 
+# CUSTOMIZZATION ZONE
+# Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
+SYMBOL="●"
+SEPARATOR="-"
+
+
+TXTCOL=$YELLOW
+WORDCOL=$GREEN
+CATCOL=$CYAN
+
+
+# TESTS ZONE
 #Wm script by Alberto Salvia Novella (es20490446e.wordpress.com)
 OS=$(cat /proc/version | grep -o -m 1 "ubuntu\|arch\|fedora\|debian\|manjaro\|alpine\|soda\|instant\|pop_os\|redhat\|red hat\|centos\|parabola\|arco\|opensuse\|suse\|void\|steam\|mx\|gentoo\|calculate" | uniq)
 WM=$(id=$(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}'); xprop -id "${id}" -notype -f _NET_WM_NAME 8t | grep "_NET_WM_NAME = " | cut --delimiter=' ' --fields=3 | cut --delimiter='"' --fields=2)
@@ -46,15 +59,7 @@ SHELL_NAME=$(echo $SHELL | sed 's/bin//g')
 SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
 UPTIME=$(uptime -p | sed s/up// | sed 's/,//g'| sed 's/ //')
 
-# CUSTOMIZZATION ZONE
-# Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
-SYMBOL="●"
-SEPARATOR="-"
 
-
-TXTCOL=$YELLOW
-WORDCOL=$GREEN
-CATCOL=$CYAN
 
 ExtraInfo()
 {
@@ -77,6 +82,10 @@ Output()
 printf "                $NODE\n                "
 
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
+=======
+printf "                $NODE@$LOGNAME\n                "
+LENGTH=${#NODE}+${#LOGNAME}+1
+for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
 printf "\e[0m\n"
 
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
