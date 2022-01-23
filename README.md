@@ -29,17 +29,19 @@ sudo make uninstall
 ```
 
 ## Contributors
-[JhonnyRice](https://github.com/JhonnyRice/)
+[JhonnyRice](https://github.com/JhonnyRice/) Owner
 
-[Francicoria](https://github.com/Francicoria/)
+[Francicoria](https://github.com/Francicoria/) Wrote half of the code
 
-[SpyLima](https://github.com/SpyLima)
+[SpyLima](https://github.com/SpyLima) created the install.sh
 
-[Viper](https://github.com/viperML)
+[Viper](https://github.com/viperML) suggested using a makefile instead of install.sh
 
-[Kazoku](https://github.com/K4zoku)
+[Kazoku](https://github.com/K4zoku) perfectioned the wm detection scipt, adding wayland support and making it way shorter
+
+[Alberto Salvia Novella](es20490446e.wordpress.com) created the original Xorg WM detection script
 #### Notes
-Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
+Uses some GNU core utils and xprop to work.
 
 This program is licensed under the GPLv3 license.
 
