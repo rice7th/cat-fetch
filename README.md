@@ -65,3 +65,25 @@ Uses some GNU core utils and xprop to work.
 This program is licensed under the GPLv3 license.
 
 If you encounter any issue or want a feature to be added please open an issue on this GitHub page. 
+
+### TODO
+fetching
+
+- [x] OS
+- [x] WM
+- [x] Shell
+- [x] Uptime
+- [x] Kernel
+- [x] Arch
+- [x] Graphic Session
+- [x] CPU
+- [x] RAM
+- [ ] GPU
+- [ ] Terminal
+- [ ] Current Time & date (???)
+- [ ] Terminal Font
+- [ ] DE (separated from WM)
+- [ ] GTK Theme
+- [ ] GTK Icons
+- [x] Resolution
+- [ ] Host
