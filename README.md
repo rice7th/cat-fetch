@@ -29,9 +29,12 @@ sudo rm /usr/bin/catfetch
 ```
 
 ## Contributors
-JhonnyRice
-Francicoria
-SpyLima
+[JhonnyRice](https://github.com/JhonnyRice/)
+
+[Francicoria](https://github.com/Francicoria/)
+
+[SpyLima](https://github.com/SpyLima)
+
 Viper
 
 #### Notes
