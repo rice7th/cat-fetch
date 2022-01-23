@@ -28,6 +28,12 @@ We advice to always check the project's code before running it, we do not take a
 sudo rm /usr/bin/catfetch
 ```
 
+## Contributors
+JhonnyRice
+Francicoria
+SpyLima
+Viper
+
 #### Notes
 Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
 
