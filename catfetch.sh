@@ -98,7 +98,7 @@ echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME:3}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
 printf "\e[0m"
 
-while getopts ":ohmbds" option; do
+while getopts ":hmabd" option; do
    case $option in
       h) #	Get help message
 	 printf "\e[0m"
