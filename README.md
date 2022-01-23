@@ -11,7 +11,7 @@ The ascii cat is made by [me](https://github.com/jhonnyrice).
 The fetch does not work? you encounter some bugs? Create a github issue and we will fix it!*
 
 
-*Fixes can take up to a day
+*Fixes can take up to a day or more
 
 #### Screenshots
 
@@ -34,15 +34,20 @@ To use the program you'll need to know these options:
 ```
 
 #### Install
-Clone the repo and use `make~ to automatically install the program:
+Clone the repo and use make to automatically install the program:
 ```
 git clone https://github.com/JhonnyRice/cat-fetch-reborn
 cd cat-fetch-reborn
 sudo make install
 ```
+If you want to install the posix-compliant version of the script(still an early WIP) run:
+```
+sudo make installposix
+```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
 #### Uninstall
+To uninstall the program run:
 ```
 sudo make uninstall
 ```

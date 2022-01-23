@@ -1,0 +1,152 @@
+#!/usr/bin/env sh
+
+#COLOR VARIABLES
+RED="\033[38;5;1m"
+YELLOW="\033[38;5;3m"
+GREEN="\033[38;5;2m"
+CYAN="\033[38;5;6m"
+BLUE="\033[38;5;4m"
+PURPLE="\033[38;5;5m"
+BLACK="\033[38;5;8m"
+WHITE="\033[38;5;m"
+B_RED="\033[38;5;9m"
+B_YELLOW="\033[38;5;11m"
+B_GREEN="\033[38;5;10m"
+B_CYAN="\033[38;5;14m"
+B_BLUE="\033[38;5;12m"
+B_PURPLE="\033[38;5;13m"
+B_WHITE="\033[38;5;0m"
+GRAY="\033[38;5;16m"
+CLS="\033[m"
+
+# CUSTOMIZZATION ZONE
+# Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
+SYMBOL="●"
+SEPARATOR="-"
+# Set colors
+TXTCOL=$YELLOW
+WORDCOL=$GREEN
+CATCOL=$CYAN
+
+
+# TESTS ZONE
+#Wm script by Alberto Salvia Novella (es20490446e.wordpress.com)
+CPU=$(grep -m 1 'model name' /proc/cpuinfo)
+RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
+OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
+WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)} # thanks to kazoku
+ARCH=$(uname -m)
+NODE=$(uname -n)
+KERNEL_NAME=$(uname -s)
+KERNEL_REL=$(uname -r)
+SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
+UPTIME=$(uptime -p) # ??
+
+Help()
+{
+        printf "
+-m	Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
+-d	Adds your dark color palette to the output
+-b	Adds your bright color palette to the output
+-c	Adds both your dark and bright color palette to the output
+-a	Adds all of the options above
+-h	Shows this help message\n
+This program is licensed under the GPLv3 license.\n
+If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
+https://github.com/jhonnyrice/cat-fetch-reborn\n
+"
+}
+
+ExtraInfo()
+{
+	printf "                ${WORDCOL}arch:    ${TXTCOL}${ARCH}\n"
+	printf "                ${WORDCOL}graphic session: ${TXTCOL}$XDG_SESSION_TYPE\n"
+	printf "                ${WORDCOL}cpu:     ${TXTCOL}${CPU}\n"
+	printf "                ${WORDCOL}ram:     ${TXTCOL}${RAM}\n"
+}
+
+DarkColor()
+{
+	printf "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}\n"
+}
+
+BrightColor()
+{
+	printf "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}\n"
+}
+
+Color()
+{
+        printf "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}\n"
+	printf "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}\n"
+}
+
+Separator()
+{
+printf "                ${CLS}"
+i=1
+while [ "$i" -ne 24 ]
+do
+    printf "$SEPARATOR"
+    i=$((i + 1))
+done
+printf "\n"
+}
+
+printf "${CATCOL}                $NODE@$LOGNAME                ${CLS}\n"
+printf "                "
+LENGTH=${#NODE}+${#LOGNAME}+1
+while [ "$i" != 18 ]
+do
+    printf "$SEPARATOR"
+    i=$((i + 1))
+done
+i=0
+
+printf "${CLS}\n"
+printf "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}\n"
+printf "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}\n"
+printf "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}\n"
+printf "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME}\n"
+printf "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}\n$CLS"
+
+while getopts ":hmabdc" option; do
+   case $option in
+      h) #	Get help message
+	 printf "${CLS}"
+	 Help
+	 exit;;
+      m) #	Get more info
+	 ExtraInfo
+	 printf "${CLS}";;
+      a) # 	Get all of the info
+         ExtraInfo
+	 Separator
+	 DarkColor
+	 BrightColor
+	 printf "${CLS}";;
+      b) #      Display bright color palette
+         Separator
+         BrightColor
+	 printf "${CLS}";;
+      d) #	Display dark color palette
+         Separator
+	 DarkColor
+	 printf "${CLS}";;
+      c) #	Display both bright and dark color palette
+      	 Separator
+	 DarkColor
+	 BrightColor
+	 printf "${CLS}";;
+      ?) #     Get unknown command output
+	 printf "${CLS}\n"
+         printf "This option does not exist. For the full list of options please use the command 'catfetch -h'\n"
+         exit;;
+   esac
+done
+
+
+# /'._   ._
+#(- = 7___.~'
+# |--''   )
+# LL_)'CC_J
