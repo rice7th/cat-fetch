@@ -1,4 +1,5 @@
 #!/bin/bash
+
 Help()
 {
         echo "
@@ -13,13 +14,15 @@ If you encounter any issue or want a feature to be added please open an issue on
 https://github.com/jhonnyrice/cat-fetch-reborn
 "
 }
-#while getopts ":h" option; do
-#   case $option in
-#      h) #      Get help message
-#         Help
-#	 exit;;
-#   esac
-#done
+while getopts ":h" option; do
+   case $option in
+      h) #      Get More Info
+         Help
+	 exit;;
+      \?) #     Get invalid message
+   	 printf "";;
+   esac
+done
 
 #COLOR VARIABLES
 RED="\x1b[31m"
@@ -62,7 +65,6 @@ TXTCOL=$YELLOW
 WORDCOL=$GREEN
 CATCOL=$CYAN
 
-
 ExtraInfo()
 {
 	echo -e "                ${WORDCOL}arch:    ${TXTCOL}${ARCH}"
@@ -98,6 +100,7 @@ while getopts ":mbd:" option; do
       d) #	Display dark colors
 	 DarkColor;;
       \?) #     Get invalid message
+	 printf "\e[0m\n"
          echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
          exit;;
    esac
