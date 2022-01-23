@@ -55,10 +55,12 @@ ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
-SHELL_NAME=$(basename $SHELL /bin)
+
+SHELL_NAME=$(basename $SHELL)
+
 #source: https://unix.stackexchange.com/a/681480
 SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
-UPTIME=$(uptime -p | sed s/up// | sed 's/,//g'| sed 's/ //')
+UPTIME=$(uptime -p)
 
 
 
@@ -89,8 +91,8 @@ for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
 printf "\e[0m\n"
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
 echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
-echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME:2}"
-echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME}"
+echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}"
+echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME:3}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
 }
 

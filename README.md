@@ -23,7 +23,7 @@ bash <(curl -s https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/mai
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
 #### Notes
-Uses some GNU core utils and xprop to work. Wm script by Alberto Salvia Novella.
+Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
 
 This program is licensed under the GPLv3 license.
 
