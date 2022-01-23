@@ -34,7 +34,7 @@ CATCOL=$CYAN
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
 OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
-WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)} # thanks to 
+WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)} # thanks to kazoku
 ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
@@ -45,12 +45,12 @@ UPTIME=$(uptime -p) # ??
 Help()
 {
         printf "
--m	Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
--d	Adds your dark color palette to the output
--b	Adds your bright color palette to the output
+-m      Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
+-d      Adds your dark color palette to the output
+-b      Adds your bright color palette to the output
 -c	Adds both your dark and bright color palette to the output
 -a	Adds all of the options above
--h	Shows this help message\n
+-h      Shows this help message\n
 This program is licensed under the GPLv3 license.\n
 If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
 https://github.com/jhonnyrice/cat-fetch-reborn\n
@@ -83,14 +83,14 @@ Color()
 
 Separator()
 {
-printf "                %s" "${CLS}"
+printf "                ${CLS}"
 for (( i=0; i<24; i++ )); do printf "-"; done
 printf "\e[0m\n"
 }
 
 echo -e "${CATCOL}                $NODE@$LOGNAME                ${CLS}"
 LENGTH=${#NODE}+${#LOGNAME}+1
-printf "                %s" "${CLS}"
+printf "                ${CLS}"
 for (( i=0; i<LENGTH; i++ )); do printf "-"; done
 
 printf "\e[0m\n"
@@ -104,33 +104,33 @@ printf "\e[0m"
 while getopts ":hmabdc" option; do
    case $option in
       h) #	Get help message
-	 printf "\e[0m"
+	 printf "${CLS}"
 	 Help
 	 exit;;
       m) #	Get more info
 	 ExtraInfo
-	 printf "\e[0m";;
+	 printf "${CLS}";;
       a) # 	Get all of the info
          ExtraInfo
 	 Separator
 	 DarkColor
 	 BrightColor
-	 printf "\e[0m";;
+	 printf "${CLS}";;
       b) #      Display bright color palette
          Separator
          BrightColor
-	 printf "\e[0m";;
+	 printf "${CLS}";;
       d) #	Display dark color palette
          Separator
 	 DarkColor
-	 printf "\e[0m";;
+	 printf "${CLS}";;
       c) #	Display both bright and dark color palette
       	 Separator
 	 DarkColor
 	 BrightColor
-	 printf "\e[0m";;
+	 printf "${CLS}";;
       ?) #     Get unknown command output
-	 printf "\e[0m\n"
+	 printf "${CLS}\n"
          echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
          exit;;
    esac
