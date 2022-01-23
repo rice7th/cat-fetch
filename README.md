@@ -14,9 +14,10 @@ To use the program you'll need to know these options:
 -h		Shows this help message
 ```
 
-#### Installer
-Use make to automatically install the program:
+#### Install
+Clone the repo and use `make~ to automatically install the program:
 ```
+git clone https://github.com/JhonnyRice/cat-fetch-reborn
 make install
 ```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
