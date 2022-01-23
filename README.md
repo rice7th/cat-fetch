@@ -11,8 +11,6 @@ To use the program you'll need to know these options(most importantly the -o opt
 -b		Adds your bright color palette to the output
 -h		Shows this help message
 ```
-This program is licensed under the GPLv3 license.
-If you encounter any issue or want a feature to be added please open an issue on this GitHub page.
 =======
 
 #### Installer
