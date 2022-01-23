@@ -6,7 +6,7 @@ The ascii cat is made by [me](https://github.com/jhonnyrice).
 #### Usage
 To use the program you'll need to know these options:
 ```
--m      Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
+-m		Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
 -d		Adds your dark color palette to the output
 -b		Adds your bright color palette to the output
 -c		Adds both your dark and bright color palette to the output
