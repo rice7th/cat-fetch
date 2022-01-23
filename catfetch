@@ -41,7 +41,7 @@ NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
 
-SHELL_NAME=$(basename $SHELL)
+SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
 
 #source: https://unix.stackexchange.com/a/681480
 UPTIME=$(uptime -p)
