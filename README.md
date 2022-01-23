@@ -1,4 +1,6 @@
 ## CatFetch Reborn
+Fast fetch program written in bash script!
+The ascii cat is made by [me](https://github.com/jhonnyrice).
 
 #### Usage
 To use the program you'll need to know these options(most importantly the -o option):
