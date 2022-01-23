@@ -44,7 +44,7 @@ KERNEL_REL=$(uname -r)
 SHELL_NAME=$(basename $SHELL)
 
 #source: https://unix.stackexchange.com/a/681480
-SESSION=$(loginctl show-session "$XDG_SESSION_ID" -p Type)
+SESSION=$($XDG_SESSION_TYPE)
 UPTIME=$(uptime -p)
 
 Help()
