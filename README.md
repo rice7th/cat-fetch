@@ -14,9 +14,9 @@ To use the program you'll need to know these options:
 ```
 
 #### Installer
-Use the command below to automatically install the program:
+Use make to automatically install the program:
 ```
-bash <(curl -s https://raw.githubusercontent.com/JhonnyRice/cat-fetch-reborn/main/install.sh)
+make install
 ```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
