@@ -25,7 +25,7 @@ We advice to always check the project's code before running it, we do not take a
 
 #### Uninstall
 ```
-sudo rm /usr/bin/catfetch
+sudo make uninstall
 ```
 
 #### Notes
