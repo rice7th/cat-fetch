@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 Help()
@@ -48,6 +47,8 @@ CATCOL=$CYAN
 
 # TESTS ZONE
 #Wm script by Alberto Salvia Novella (es20490446e.wordpress.com)
+CPU=$(grep -m 1 'model name' /proc/cpuinfo)
+RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
 OS=$(cat /proc/version | grep -o -m 1 "ubuntu\|arch\|fedora\|debian\|manjaro\|alpine\|soda\|instant\|pop_os\|redhat\|red hat\|centos\|parabola\|arco\|opensuse\|suse\|void\|steam\|mx\|gentoo\|calculate" | uniq)
 WM=$(id=$(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}'); xprop -id "${id}" -notype -f _NET_WM_NAME 8t | grep "_NET_WM_NAME = " | cut --delimiter=' ' --fields=3 | cut --delimiter='"' --fields=2)
 ARCH=$(uname -m)
@@ -65,6 +66,8 @@ ExtraInfo()
 {
 	echo -e "                ${WORDCOL}arch:    ${TXTCOL}${ARCH}"
 	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}${SESSION}"
+	echo -e "                ${WORDCOL}cpu:     ${TXTCOL}${CPU:13}"
+	echo -e "                ${WORDCOL}ram:     ${TXTCOL}${RAM}"
 }
 
 DarkColor()
@@ -80,14 +83,14 @@ BrightColor()
 Output()
 {
 printf "                $NODE\n                "
-
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
+
 
 printf "                $NODE@$LOGNAME\n                "
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
-printf "\e[0m\n"
 
+printf "\e[0m\n"
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
 echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME:2}"
