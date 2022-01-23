@@ -55,7 +55,9 @@ ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
+
 SHELL_NAME=$(basename $SHELL)
+
 #source: https://unix.stackexchange.com/a/681480
 SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
 UPTIME=$(uptime -p)
@@ -82,10 +84,6 @@ BrightColor()
 
 Output()
 {
-printf "                $NODE\n                "
-for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
-
-
 printf "                $NODE@$LOGNAME\n                "
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
