@@ -90,7 +90,7 @@ echo -e "${CATCOL}                $NODE@$LOGNAME\n                ${CLS}"
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
 
-printf "\e[0m"
+printf "\e[0m\n"
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
 echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}"
