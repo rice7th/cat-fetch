@@ -3,6 +3,25 @@ Fast fetch program written in bash script!
 
 The ascii cat is made by [me](https://github.com/jhonnyrice).
 
+### Features
+* Fast. Not as fast as the old cat-fetch, but still really fast
+* Good WM detection. It can still have bugs, but its ultra fast, because it doesn't need to search processes for the WM's in a process list, wich is a very slow method
+* Cute. Cats are cute.
+* Lots of info. There are lots of info that this fetch can display, and we're adding even more! from the current shell to the graphical session to RAM usage.
+The fetch does not work? you encounter some bugs? Create a github issue and we will fix it!*
+
+
+*Fixes can take up to a day
+
+#### Screenshots
+
+###### Catfetch on fedora
+![Catfetch on fedora](https://user-images.githubusercontent.com/93940240/150697310-db887fa1-530d-4a53-807b-e13fe11d2a27.png)
+
+###### Catfetch on Ubuntu
+![Catfetch on Ubuntu](https://user-images.githubusercontent.com/93940240/150697445-912577ec-b374-4936-9668-f14820b8184a.png)
+
+
 #### Usage
 To use the program you'll need to know these options:
 ```
