@@ -35,7 +35,7 @@ sudo make uninstall
 
 [SpyLima](https://github.com/SpyLima)
 
-Viper
+[Viper](https://github.com/viperML)
 
 #### Notes
 Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
