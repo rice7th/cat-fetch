@@ -37,6 +37,7 @@ sudo make uninstall
 
 [Viper](https://github.com/viperML)
 
+[Kazoku](https://github.com/K4zoku)
 #### Notes
 Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
 
