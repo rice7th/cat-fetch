@@ -14,15 +14,6 @@ If you encounter any issue or want a feature to be added please open an issue on
 https://github.com/jhonnyrice/cat-fetch-reborn
 "
 }
-while getopts ":h" option; do
-   case $option in
-      h) #      Get More Info
-         Help
-	 exit;;
-      \?) #     Get invalid message
-   	 printf "";;
-   esac
-done
 
 #COLOR VARIABLES
 RED="\x1b[31m"
@@ -81,6 +72,8 @@ BrightColor()
 	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
 }
 
+Output()
+{
 printf "                $NODE\n                "
 
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
@@ -91,24 +84,43 @@ echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME:2}"
 echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
-while getopts ":mbd:" option; do
+}
+
+Separator()
+{
+printf "                ${CLS}"
+for (( i=0; i<24; i++ )); do printf "-"; done
+printf "\e[0m\n"
+}
+
+while getopts ":ohmbds" option; do
    case $option in
+      o) #	Get output
+	 Output
+	 printf "\e[0m";;
+      h) #	Get help message
+	 printf "\e[0m"
+	 Help
+	 exit;;
       m) # 	Get More Info
-         ExtraInfo;;
+         ExtraInfo
+	 printf "\e[0m";;
       b) #      Display bright colors
-         BrightColor;;
+         BrightColor
+	 printf "\e[0m";;
       d) #	Display dark colors
-	 DarkColor;;
-      \?) #     Get invalid message
+	 DarkColor
+	 printf "\e[0m";;
+      s) #	Display separator
+	 Separator
+	 printf "\e[0m";;
+      ?) #     Get output
 	 printf "\e[0m\n"
          echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
          exit;;
    esac
 done
 
-printf "                ${CLS}"
-for (( i=0; i<24; i++ )); do printf "-"; done
-printf "\e[0m\n"
 
 # /'._   ._
 #(- = 7___.~'
