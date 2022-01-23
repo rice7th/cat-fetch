@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
 
-Help()
-{
-        printf "
--s	Adds a separator
--m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
--d      Adds your dark color palette to the output
--b      Adds your bright color palette to the output
--h      Shows this help message\n
-This program is licensed under the GPLv3 license.\n
-If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
-https://github.com/jhonnyrice/cat-fetch-reborn\n
-"
-}
-
 #COLOR VARIABLES
 RED="\x1b[31m"
 YELLOW="\x1b[33m"
@@ -61,7 +47,19 @@ SHELL_NAME=$(basename $SHELL)
 SESSION=${DISPLAY:+X11}${WAYLAND_DISPLAY:+WAYLAND}
 UPTIME=$(uptime -p)
 
-
+Help()
+{
+        printf "
+-m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
+-d      Adds your dark color palette to the output
+-b      Adds your bright color palette to the output
+-a	Adds all of the options above
+-h      Shows this help message\n
+This program is licensed under the GPLv3 license.\n
+If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
+https://github.com/jhonnyrice/cat-fetch-reborn\n
+"
+}
 
 ExtraInfo()
 {
@@ -81,6 +79,12 @@ BrightColor()
 	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
 }
 
+Separator()
+{
+printf "                ${CLS}"
+for (( i=0; i<24; i++ )); do printf "-"; done
+printf "\e[0m\n"
+}
 
 printf "                $NODE@$LOGNAME\n                "
 LENGTH=${#NODE}+${#LOGNAME}+1
@@ -92,14 +96,7 @@ echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}"
 echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME:3}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
-printf "\e[0m\n"
-
-Separator()
-{
-printf "                ${CLS}"
-for (( i=0; i<24; i++ )); do printf "-"; done
-printf "\e[0m\n"
-}
+printf "\e[0m"
 
 while getopts ":ohmbds" option; do
    case $option in
@@ -107,17 +104,20 @@ while getopts ":ohmbds" option; do
 	 printf "\e[0m"
 	 Help
 	 exit;;
-      m) # 	Get More Info
+      m) #	Get more info
+	 ExtraInfo
+	 printf "\e[0m";;
+      a) # 	Get all of the info
          ExtraInfo
+	 Separator
+	 DarkColor
+	 BrightColor
 	 printf "\e[0m";;
       b) #      Display bright colors
          BrightColor
 	 printf "\e[0m";;
       d) #	Display dark colors
 	 DarkColor
-	 printf "\e[0m";;
-      s) #	Display separator
-	 Separator
 	 printf "\e[0m";;
       ?) #     Get output
 	 printf "\e[0m\n"
