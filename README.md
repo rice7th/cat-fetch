@@ -3,18 +3,6 @@
 #### Usage
 To use the program you'll need to know these options(most importantly the -o option):
 ```
--o              Displays the actual output [necessary for the other options to make sense]
-
--s              Adds a separator
--m              Adds the system architecture and graphic session(X11 or WAYLAND) to the output
--d              Adds your dark color palette to the output
--b              Adds your bright color palette to the output
--h              Shows this help message
-```
-
-#### Usage
-To use the program you'll need to know these options(most importantly the -o option):
-```
 -o		Displays the actual output [necessary for the other options to make sense]
 
 -s		Adds a separator
