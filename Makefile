@@ -1,5 +1,5 @@
 PREFIX?=./local
 
 install:
-	install -Dm755 catfetch $(PREFIX)/bin/catfetch
+	install -Dm755 catfetch.sh $(PREFIX)/bin/catfetch.sh
   
