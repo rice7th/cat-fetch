@@ -50,10 +50,10 @@ UPTIME=$(uptime -p)
 Help()
 {
         printf "
--m      Adds more info to the output
--c      Adds the color paletter to the output
+-m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
 -d      Adds your dark color palette to the output
 -b      Adds your bright color palette to the output
+-c	Adds both your dark and bright color palette to the output
 -a	Adds all of the options above
 -h      Shows this help message\n
 This program is licensed under the GPLv3 license.\n
@@ -106,7 +106,7 @@ echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME:3}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
 printf "\e[0m"
 
-while getopts ":hmabd" option; do
+while getopts ":hmabdc" option; do
    case $option in
       h) #	Get help message
 	 printf "\e[0m"
@@ -121,16 +121,17 @@ while getopts ":hmabd" option; do
 	 DarkColor
 	 BrightColor
 	 printf "\e[0m";;
-      b) #      Display bright colors
+      b) #      Display bright color palette
          BrightColor
 	 printf "\e[0m";;
-      d) #	Display dark colors
+      d) #	Display dark color palette
 	 DarkColor
 	 printf "\e[0m";;
-      c) # Display COLORS
-         Color
+      c) #	Display both bright and dark color palette
+	 DarkColor
+	 BrightColor
 	 printf "\e[0m";;
-      ?) #     Get output
+      ?) #     Get unknown command output
 	 printf "\e[0m\n"
          echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
          exit;;
