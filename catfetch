@@ -93,7 +93,7 @@ for (( i=0; i<24; i++ )); do printf "-"; done
 printf "\e[0m\n"
 }
 
-echo -e "${CATCOL}                $NODE@$LOGNAME\n                ${CLS}"
+echo -e "${CATCOL}                $NODE@$LOGNAME                ${CLS}"
 LENGTH=${#NODE}+${#LOGNAME}+1
 printf "                ${CLS}"
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done

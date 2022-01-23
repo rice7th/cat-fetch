@@ -18,9 +18,15 @@ To use the program you'll need to know these options:
 Clone the repo and use `make~ to automatically install the program:
 ```
 git clone https://github.com/JhonnyRice/cat-fetch-reborn
-make install
+cd cat-fetch-reborn
+sudo make install
 ```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
+
+#### Uninstall
+```
+sudo rm /usr/bin/catfetch
+```
 
 #### Notes
 Uses some GNU core utils and xprop to work. Xorg Wm script by Alberto Salvia Novella.
