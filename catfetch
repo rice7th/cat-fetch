@@ -23,8 +23,7 @@ CLS="\x1b[0m"
 # Cool characters for the symbol ◆ ◀ ▧ ▨ ▦ ▥ ▤ ▣ ● ◕ █
 SYMBOL="●"
 SEPARATOR="-"
-
-
+# Set colors
 TXTCOL=$YELLOW
 WORDCOL=$GREEN
 CATCOL=$CYAN
@@ -35,21 +34,18 @@ CATCOL=$CYAN
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
 OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
-WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)}
+WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)} # thanks to 
 ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
-
-SHELL_NAME=$(basename "$SHELL")
-
-#source: https://unix.stackexchange.com/a/681480
-UPTIME=$(uptime -p)
+SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
+UPTIME=$(uptime -p) # ??
 
 Help()
 {
         printf "
--m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
+-m      Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
 -d      Adds your dark color palette to the output
 -b      Adds your bright color palette to the output
 -c	Adds both your dark and bright color palette to the output
