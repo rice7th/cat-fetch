@@ -82,7 +82,7 @@ Output()
 printf "                $NODE\n                "
 
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
-=======
+
 printf "                $NODE@$LOGNAME\n                "
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
