@@ -84,6 +84,12 @@ Output()
 {
 printf "                $NODE\n                "
 for (( i=0; i<${#NODE}; i++ )); do printf "-"; done
+
+
+printf "                $NODE@$LOGNAME\n                "
+LENGTH=${#NODE}+${#LOGNAME}+1
+for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
+
 printf "\e[0m\n"
 echo -e "${CATCOL}   /'._         ${WORDCOL}os:      ${TXTCOL}${OS}"
 echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
