@@ -41,6 +41,7 @@ KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
 SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
 UPTIME=$(uptime -p) # ??
+RESOLUTION=$(xrandr | grep "*" | awk '{print $1}') # ? ? ?
 
 Help()
 {
@@ -63,6 +64,7 @@ ExtraInfo()
 	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}$XDG_SESSION_TYPE"
 	echo -e "                ${WORDCOL}cpu:     ${TXTCOL}${CPU:13}"
 	echo -e "                ${WORDCOL}ram:     ${TXTCOL}${RAM}"
+	echo -e "                ${WORDCOL}resolution:     ${TXTCOL}${RESOLUTION}"
 }
 
 DarkColor()
