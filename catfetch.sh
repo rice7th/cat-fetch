@@ -3,7 +3,6 @@
 Help()
 {
         printf "
--o	Displays the actual output [necessary for the other options to make sense]\n
 -s	Adds a separator
 -m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
 -d      Adds your dark color palette to the output
@@ -82,8 +81,7 @@ BrightColor()
 	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
 }
 
-Output()
-{
+
 printf "                $NODE@$LOGNAME\n                "
 LENGTH=${#NODE}+${#LOGNAME}+1
 for (( i=0; i<${LENGTH}; i++ )); do printf "-"; done
@@ -94,7 +92,7 @@ echo -e "${CATCOL}  (° o 7        ${WORDCOL}wm:      ${TXTCOL}${WM}"
 echo -e "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}"
 echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME:3}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
-}
+printf "\e[0m\n"
 
 Separator()
 {
@@ -105,9 +103,6 @@ printf "\e[0m\n"
 
 while getopts ":ohmbds" option; do
    case $option in
-      o) #	Get output
-	 Output
-	 printf "\e[0m";;
       h) #	Get help message
 	 printf "\e[0m"
 	 Help
