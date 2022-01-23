@@ -2,16 +2,16 @@
 
 Help()
 {
-        echo "
--h      Shows this help message
+        printf "
+-o	Displays the actual output [necessary for the other options to make sense]\n
+-s	Adds a separator
 -m      Adds the system architecture and graphic session(X11 or WAYLAND) to the output
 -d      Adds your dark color palette to the output
 -b      Adds your bright color palette to the output
-
-This program is licensed under the GPLv3 license.
-
+-h      Shows this help message\n
+This program is licensed under the GPLv3 license.\n
 If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
-https://github.com/jhonnyrice/cat-fetch-reborn
+https://github.com/jhonnyrice/cat-fetch-reborn\n
 "
 }
 
