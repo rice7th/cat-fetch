@@ -15,15 +15,20 @@ To use the program you'll need to know these options:
 ```
 
 #### Install
-Clone the repo and use `make~ to automatically install the program:
+Clone the repo and use make to automatically install the program:
 ```
 git clone https://github.com/JhonnyRice/cat-fetch-reborn
 cd cat-fetch-reborn
 sudo make install
 ```
+If you want to install the posix-compliant version of the script run:
+```
+sudo make installposix
+```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
 #### Uninstall
+To uninstall the program run:
 ```
 sudo make uninstall
 ```
