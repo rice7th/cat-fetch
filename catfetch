@@ -45,12 +45,12 @@ UPTIME=$(uptime -p) # ??
 Help()
 {
         printf "
--m      Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
--d      Adds your dark color palette to the output
--b      Adds your bright color palette to the output
+-m	Adds more info, like the system architecture and graphic session(X11 or WAYLAND) to the output
+-d	Adds your dark color palette to the output
+-b	Adds your bright color palette to the output
 -c	Adds both your dark and bright color palette to the output
 -a	Adds all of the options above
--h      Shows this help message\n
+-h	Shows this help message\n
 This program is licensed under the GPLv3 license.\n
 If you encounter any issue or want a feature to be added please open an issue on the GitHub page.
 https://github.com/jhonnyrice/cat-fetch-reborn\n
