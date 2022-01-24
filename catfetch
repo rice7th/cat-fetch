@@ -76,6 +76,7 @@ ExtraInfo()
 	echo -e "                ${WORDCOL}resolution:      ${TXTCOL}${RESOLUTION}"
 	echo -e "                ${WORDCOL}space:    ${TXTCOL}${FREE_SPACE} remaining, out of ${TOTAL_SPACE}"
 	echo -e "                ${WORDCOL}terminal: ${TXTCOL}${TERMINAL:7}"
+FEDORA="Fedora Linux"
 case ${OS,,} in
     arch)
 	ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
@@ -89,7 +90,7 @@ case ${OS,,} in
 	DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
 	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${DEB_PKG} (dpkg)"
     ;;
-    fedora)
+    $FEDORA)
     	RPM_PKG=$(rpm -qa | wc -l)
 	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${RPM_PKG} (rpm)"
     ;;
