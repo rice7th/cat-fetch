@@ -71,7 +71,7 @@ ExtraInfo()
 	echo -e "                ${WORDCOL}arch:     ${TXTCOL}${ARCH}"
 	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}$XDG_SESSION_TYPE"
 	echo -e "                ${WORDCOL}cpu:      ${TXTCOL}${CPU:13}"
-	echo -e "                ${WORDCOL}cpu:      ${TXTCOL}${GPU:12}"
+	echo -e "                ${WORDCOL}gpu:      ${TXTCOL}${GPU:12}"
 	echo -e "                ${WORDCOL}ram:      ${TXTCOL}${RAM}"
 	echo -e "                ${WORDCOL}resolution:      ${TXTCOL}${RESOLUTION}"
 	echo -e "                ${WORDCOL}space:    ${TXTCOL}${FREE_SPACE} remaining, out of ${TOTAL_SPACE}"
