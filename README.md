@@ -83,7 +83,7 @@ fetching
 - [x] Graphic Session
 - [x] CPU
 - [x] RAM
-- [ ] GPU
+- [x] GPU
 - [ ] Terminal
 - [ ] Current Time & date (???)
 - [ ] Terminal Font
@@ -92,3 +92,5 @@ fetching
 - [ ] GTK Icons
 - [x] Resolution
 - [ ] Host
+- [ ] Disk Usage
+- [x] Packages (experimental)
