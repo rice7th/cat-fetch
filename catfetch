@@ -94,12 +94,12 @@ case ${OS,,} in
     	XBPS_PKG=$(xbps-query -l | wc -l)
 	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${XBPS_PKG} (xbps)"
     ;;
-esac
-if [ ${OS,,} == ${FEDORA} ]
-then
+    "fedora linux")
     	RPM_PKG=$(rpm -qa | wc -l)
 	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${RPM_PKG} (rpm)"
-fi
+    ;;
+esac
+
 }
 
 DarkColor()
