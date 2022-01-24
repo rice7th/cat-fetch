@@ -42,6 +42,9 @@ KERNEL_REL=$(uname -r)
 SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
 UPTIME=$(uptime -p) # ??
 RESOLUTION=$(xrandr | grep "*" | awk '{print $1}') # ? ? ?
+FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
+TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
+GPU=$(glxinfo | grep "Device")
 
 Help()
 {
@@ -58,13 +61,41 @@ https://github.com/jhonnyrice/cat-fetch\n
 "
 }
 
+
+
+
+
 ExtraInfo()
 {
-	echo -e "                ${WORDCOL}arch:    ${TXTCOL}${ARCH}"
+	echo -e "                ${WORDCOL}arch:     ${TXTCOL}${ARCH}"
 	echo -e "                ${WORDCOL}graphic session: ${TXTCOL}$XDG_SESSION_TYPE"
-	echo -e "                ${WORDCOL}cpu:     ${TXTCOL}${CPU:13}"
-	echo -e "                ${WORDCOL}ram:     ${TXTCOL}${RAM}"
-	echo -e "                ${WORDCOL}resolution:     ${TXTCOL}${RESOLUTION}"
+	echo -e "                ${WORDCOL}cpu:      ${TXTCOL}${CPU:13}"
+	echo -e "                ${WORDCOL}cpu:      ${TXTCOL}${GPU:12}"
+	echo -e "                ${WORDCOL}ram:      ${TXTCOL}${RAM}"
+	echo -e "                ${WORDCOL}resolution:      ${TXTCOL}${RESOLUTION}"
+	echo -e "                ${WORDCOL}space:    ${TXTCOL}${FREE_SPACE} remaining, out of ${TOTAL_SPACE}"
+case ${OS,,} in
+    arch)
+	ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
+	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${ARCH_PKG} (pacman)"
+    ;;
+    debian)
+	DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${DEB_PKG} (dpkg)"
+    ;;
+    ubuntu)
+	DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${DEB_PKG} (dpkg)"
+    ;;
+    fedora linux)
+    	RPM_PKG=$(rpm -qa | wc -l)
+	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${RPM_PKG} (rpm)"
+    ;;
+    void)
+    	XBPS_PKG=$(xbps-query -l | wc -l)
+	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${XBPS_PKG} (xbps)"
+    ;;
+esac
 }
 
 DarkColor()
