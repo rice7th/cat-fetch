@@ -92,5 +92,5 @@ fetching
 - [ ] GTK Icons
 - [x] Resolution
 - [ ] Host
-- [ ] Disk Usage
+- [x] Disk Usage
 - [x] Packages (experimental)
