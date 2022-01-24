@@ -42,7 +42,7 @@ KERNEL_REL=$(uname -r)
 SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
 UPTIME=$(uptime -p) # ??
 RESOLUTION=$(xrandr | grep "*" | awk '{print $1}') # ? ? ?
-FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
+USED_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
 TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
 GPU=$(glxinfo | grep "Device")
 TERMINAL=$(TERM_PID=$(ps -p $$ -o args,ppid | grep -o "[0-9]" | tr -d "\n"); ps -p ${TERM_PID} -o args | tr -d "\n")
@@ -74,7 +74,7 @@ ExtraInfo()
 	echo -e "                ${WORDCOL}gpu:      ${TXTCOL}${GPU:12}"
 	echo -e "                ${WORDCOL}ram:      ${TXTCOL}${RAM}"
 	echo -e "                ${WORDCOL}resolution:      ${TXTCOL}${RESOLUTION}"
-	echo -e "                ${WORDCOL}space:    ${TXTCOL}${FREE_SPACE} remaining, out of ${TOTAL_SPACE}"
+	echo -e "                ${WORDCOL}space:    ${TXTCOL}${USED_SPACE} used, out of ${TOTAL_SPACE}"
 	echo -e "                ${WORDCOL}terminal: ${TXTCOL}${TERMINAL:7}"
 FEDORA="Fedora Linux"
 case ${OS,,} in
