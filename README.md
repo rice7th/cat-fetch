@@ -84,7 +84,7 @@ fetching
 - [x] CPU
 - [x] RAM
 - [x] GPU
-- [ ] Terminal
+- [x] Terminal
 - [ ] Current Time & date (???)
 - [ ] Terminal Font
 - [ ] DE (separated from WM)
