@@ -87,7 +87,7 @@ case ${OS,,} in
 	DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
 	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${DEB_PKG} (dpkg)"
     ;;
-    fedora linux)
+    fedora)
     	RPM_PKG=$(rpm -qa | wc -l)
 	echo -e "                ${WORDCOL}Packages: ${TXTCOL}${RPM_PKG} (rpm)"
     ;;
