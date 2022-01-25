@@ -3,6 +3,10 @@ Fast fetch program written in bash script!
 
 The ascii cat is made by [me](https://github.com/jhonnyrice).
 
+## MACOS BETA IS OUT!
+Go and try the new mac os beta!
+please if you encounter an issue, report that in a github issue
+
 ### Features
 * Fast. Not as fast as the old cat-fetch, but still really fast
 * Good WM detection. It can still have bugs, but its ultra fast, because it doesn't need to search processes for the WM's in a process list, wich is a very slow method
