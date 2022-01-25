@@ -1,5 +1,6 @@
 ## CatFetch Reborn
 Fast fetch program written in bash script!
+v. 1.5.1
 
 The ascii cat is made by [me](https://github.com/jhonnyrice).
 
