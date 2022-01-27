@@ -1,5 +1,8 @@
 PREFIX?=/usr
 
+installmacos:
+	cp -f macos/catfetch.sh $(PREFIX)/bin/catfetch
+	chmod 755 $(PREFIX)/bin/catfetch
 installposix:
 	cp -f catfetchposix $(PREFIX)/bin/catfetch
 	chmod 755 $(PREFIX)/bin/catfetch
@@ -9,4 +12,4 @@ install:
 uninstall:
 	rm -f $(PREFIX)/bin/catfetch
 
-.PHONY: installposix install uninstall
+.PHONY: installmacos installposix install uninstall
