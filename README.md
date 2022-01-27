@@ -47,7 +47,7 @@ cd cat-fetch-reborn
 ```
 Now to install it system-wide using make:
 ```
-sudo make install	# Normal install
+sudo make install       # Normal install
 sudo make installmacos	# Macos install
 sudo make installposix	# Posix-compliant install (WIP)
 ```
