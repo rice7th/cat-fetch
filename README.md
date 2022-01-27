@@ -40,15 +40,16 @@ To use the program you'll need to know these options:
 ```
 
 #### Install
-Clone the repo and use make to automatically install the program:
+Clone the repo and cd into the cloned repo:
 ```
 git clone https://github.com/JhonnyRice/cat-fetch-reborn
 cd cat-fetch-reborn
-sudo make install
 ```
-If you want to install the posix-compliant version of the script(still an early WIP) run:
+Now to install it system-wide using make:
 ```
-sudo make installposix
+sudo make install       # Normal install
+sudo make installmacos	# Macos install
+sudo make installposix	# Posix-compliant install (WIP)
 ```
 We advice to always check the project's code before running it, we do not take any responsability if something happens.
 
