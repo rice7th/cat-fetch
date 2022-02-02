@@ -62,9 +62,13 @@ https://github.com/jhonnyrice/cat-fetch\n
 "
 }
 
-
-
-
+#	Get Help Message
+if [ "$1" = "-h" ]
+then
+	printf "${CLS}"
+	Help
+	exit 0
+fi
 
 ExtraInfo()
 {
@@ -112,12 +116,6 @@ BrightColor()
 	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
 }
 
-Color()
-{
-        echo -e "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}"
-	echo -e "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}"
-}
-
 Separator()
 {
 printf "                ${CLS}"
@@ -138,12 +136,8 @@ echo -e "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME:3}"
 echo -e "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}"
 printf "\e[0m"
 
-while getopts ":hmabdc" option; do
+while getopts ":mabdc" option; do
    case $option in
-      h) #	Get help message
-	 printf "${CLS}"
-	 Help
-	 exit;;
       m) #	Get more info
 	 ExtraInfo
 	 printf "${CLS}";;
@@ -154,11 +148,9 @@ while getopts ":hmabdc" option; do
 	 BrightColor
 	 printf "${CLS}";;
       b) #      Display bright color palette
-         Separator
          BrightColor
 	 printf "${CLS}";;
       d) #	Display dark color palette
-         Separator
 	 DarkColor
 	 printf "${CLS}";;
       c) #	Display both bright and dark color palette
@@ -169,7 +161,7 @@ while getopts ":hmabdc" option; do
       ?) #     Get unknown command output
 	 printf "${CLS}\n"
          echo "This option does not exist. For the full list of options please use the command 'catfetch -h'"
-         exit;;
+         exit 0
    esac
 done
 
