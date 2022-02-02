@@ -30,17 +30,19 @@ CATCOL=$CYAN
 
 
 # TESTS ZONE
-#Wm script by Alberto Salvia Novella (es20490446e.wordpress.com)
-CPU=$(grep -m 1 'model name' /proc/cpuinfo)
-RAM=$(free -h | grep "^Mem:" | awk '{print $3 "/" $2}')
+# Old WM script (not used anymore) by Alberto Salvia Novella (es20490446e.wordpress.com)
+CPU=$(grep -m 1 'model name' /proc/cpuinfo | awk -P '{print $4" "$5" "$6" "$7" "$8" "$9" "$10}')
+RAM=$(free -h | grep "^Mem:" | awk -P '{print $3 "/" $2}')
 OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
 WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)} # thanks to kazoku
 ARCH=$(uname -m)
 NODE=$(uname -n)
 KERNEL_NAME=$(uname -s)
 KERNEL_REL=$(uname -r)
-SHELL_NAME=$(cat /proc/$$/comm) # how does this even work
+SHELL_NAME=$SHELL
 UPTIME=$(uptime -p) # ??
+USED_SPACE=$(df -P -h / | awk -P '{print $3}' | grep "^[0-9]") # not sure if grep here is posix-compliant
+TOTAL_SPACE=$(df -P -h / | awk -P '{print $2}' | grep "^[0-9]")
 
 Help()
 {
@@ -57,12 +59,21 @@ https://github.com/jhonnyrice/cat-fetch-reborn\n
 "
 }
 
+#	Get Help Message
+if [ "$1" = "-h" ]
+then
+         printf "${CLS}"
+         Help
+         exit 0
+fi
+
 ExtraInfo()
 {
-	printf "                ${WORDCOL}arch:    ${TXTCOL}${ARCH}\n"
-	printf "                ${WORDCOL}graphic session: ${TXTCOL}$XDG_SESSION_TYPE\n"
-	printf "                ${WORDCOL}cpu:     ${TXTCOL}${CPU}\n"
-	printf "                ${WORDCOL}ram:     ${TXTCOL}${RAM}\n"
+	printf "                ${WORDCOL}arch:	${TXTCOL}${ARCH}\n"
+	printf "                ${WORDCOL}graphic session:	${TXTCOL}$XDG_SESSION_TYPE\n"
+	printf "                ${WORDCOL}cpu:	${TXTCOL}${CPU}\n"
+	printf "                ${WORDCOL}ram:	${TXTCOL}${RAM}\n"
+	printf "                ${WORDCOL}Disk space:	${TXTCOL}Used ${USED_SPACE} of ${TOTAL_SPACE}\n"
 }
 
 DarkColor()
@@ -72,12 +83,6 @@ DarkColor()
 
 BrightColor()
 {
-	printf "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}\n"
-}
-
-Color()
-{
-        printf "                ${RED} ${SYMBOL} ${YELLOW} ${SYMBOL} ${GREEN} ${SYMBOL} ${CYAN} ${SYMBOL} ${BLUE} ${SYMBOL} ${PURPLE} ${SYMBOL} ${WHITE} ${SYMBOL} ${BLACK} ${SYMBOL} ${CLS}\n"
 	printf "                ${B_RED} ${SYMBOL} ${B_YELLOW} ${SYMBOL} ${B_GREEN} ${SYMBOL} ${B_CYAN} ${SYMBOL} ${B_BLUE} ${SYMBOL} ${B_PURPLE} ${SYMBOL} ${B_WHITE} ${SYMBOL} ${GRAY} ${SYMBOL} ${CLS}\n"
 }
 
@@ -110,12 +115,8 @@ printf "${CATCOL}   |'-'\"~.  .   ${WORDCOL}shell:   ${TXTCOL}${SHELL_NAME}\n"
 printf "${CATCOL}   Uu^~C_J._.\"  ${WORDCOL}uptime:  ${TXTCOL}${UPTIME}\n"
 printf "${CATCOL}                ${WORDCOL}kernel:  ${TXTCOL}${KERNEL_NAME} ${KERNEL_REL}\n$CLS"
 
-while getopts ":hmabdc" option; do
+while getopts ":mabdc" option; do
    case $option in
-      h) #	Get help message
-	 printf "${CLS}"
-	 Help
-	 exit;;
       m) #	Get more info
 	 ExtraInfo
 	 printf "${CLS}";;
