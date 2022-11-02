@@ -42,7 +42,7 @@ To use the program you'll need to know these options:
 #### Install
 Clone the repo and cd into the cloned repo:
 ```
-git clone https://github.com/JhonnyRice/cat-fetch-reborn
+git clone https://github.com/rice7th/cat-fetch-reborn
 cd cat-fetch-reborn
 ```
 Now to install it system-wide using make:
@@ -60,7 +60,7 @@ sudo make uninstall
 ```
 
 ## Contributors
-[JhonnyRice](https://github.com/JhonnyRice/) Owner
+[Rice7th](https://github.com/Rice7th/) Owner
 
 [Francicoria](https://github.com/Francicoria/) Wrote half of the code
 
